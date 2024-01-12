@@ -1,7 +1,7 @@
 {
 	"name": "auto-update-example",
 	"productName": "auto-update-example",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"description": "My Electron application description",
 	"repository": "https://github.com/culozik/test_upd_rep",
 	"main": "src/index.js",

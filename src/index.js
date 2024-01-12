@@ -69,7 +69,7 @@ autoUpdater.on("update-available", (event, releaseNotes, releaseName) => {
 	});
 
 	// Load your custom notification HTML here
-	win.loadFile("path/to/your/notification.html");
+	win.loadFile("./update.html");
 
 	win.on("closed", () => {
 		win = null;
