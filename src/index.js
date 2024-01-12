@@ -1,7 +1,5 @@
-const { app, BrowserWindow, autoUpdater } = require("electron");
+const { app, BrowserWindow } = require("electron");
 const path = require("path");
-
-const { ipcMain } = require("electron");
 
 const updateApp = require("update-electron-app");
 
@@ -56,32 +54,4 @@ app.on("ready", () => {
 		updateInterval: "5 minutes",
 		notifyUser: true,
 	});
-});
-
-autoUpdater.on("update-available", (event, releaseNotes, releaseName) => {
-	let win = new BrowserWindow({
-		width: 400,
-		height: 300,
-		webPreferences: {
-			nodeIntegration: true,
-			contextIsolation: false,
-		},
-	});
-
-	// Load your custom notification HTML here
-	win.loadFile("./update.html");
-
-	win.on("closed", () => {
-		win = null;
-	});
-
-	win.show();
-});
-
-ipcMain.on("update-app", () => {
-	autoUpdater.downloadUpdate();
-});
-
-ipcMain.on("postpone-update", (event) => {
-	event.sender.getOwnerBrowserWindow().close();
 });
