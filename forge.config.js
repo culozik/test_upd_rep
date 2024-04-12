@@ -1,6 +1,7 @@
 module.exports = {
 	packagerConfig: {
 		asar: true,
+		extraResource: "credentials",
 	},
 	rebuildConfig: {},
 	makers: [
